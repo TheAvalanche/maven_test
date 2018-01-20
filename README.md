@@ -1,2 +1,1 @@
-# maven_test
-Test projecDon't read me.
+Don't read me
