@@ -1,5 +1,6 @@
 package lv.akurss.maventest;
 
+import com.rometools.rome.feed.synd.SyndEntry;
 import com.rometools.rome.feed.synd.SyndFeed;
 import com.rometools.rome.io.SyndFeedInput;
 import com.rometools.rome.io.XmlReader;
@@ -20,7 +21,7 @@ public class Runner {
 		SyndFeed feed = new SyndFeedInput().build(new XmlReader(new URL(url)));
 		log.info("RSS feed from {}", feed.getTitle());
 		feed.getEntries().stream()
-				.map(it -> it.getDescription())
+				.map(SyndEntry::getDescription)
 				.forEach(it -> log.info(format(it.getValue())));
 				
 		
